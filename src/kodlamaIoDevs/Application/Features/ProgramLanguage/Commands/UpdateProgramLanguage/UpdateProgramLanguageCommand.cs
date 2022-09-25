@@ -30,8 +30,7 @@ namespace Application.Features.ProgramLanguage.Commands.UpdateProgramLanguage
             }
             public async Task<UpdatedProgramLanguageDto> Handle(UpdateProgramLanguageCommand request, CancellationToken cancellationToken)
             {
-                Domain.Entities.ProgramLanguage? programLanguageUpdated = await _programLanguageRepository.GetAsync(x => x.Id == request.Id);
-                programLanguageUpdated.Name=request.Name;
+                Domain.Entities.ProgramLanguage? programLanguageUpdated = await _programLanguageRepository.GetAsync(x => x.Id == request.Id); programLanguageUpdated.Name=request.Name;
                 Domain.Entities.ProgramLanguage updatedProgrammingLanguage = await _programLanguageRepository.UpdateAsync(programLanguageUpdated);
                 UpdatedProgramLanguageDto updatedProgrammingLanguageDto = _mapper.Map<UpdatedProgramLanguageDto>(updatedProgrammingLanguage);
 

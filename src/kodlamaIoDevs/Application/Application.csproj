@@ -6,7 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 	<ItemGroup>
+		<Folder Include="Features\Github\Constants\" />
 		<Folder Include="Features\ProgramLanguage\Constants\" />
+		<Folder Include="Features\SubProgramLanguage\Constants\" />
 	</ItemGroup>
 
 	<ItemGroup>

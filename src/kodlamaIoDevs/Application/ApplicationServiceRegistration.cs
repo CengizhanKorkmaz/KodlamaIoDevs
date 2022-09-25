@@ -4,7 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Features.Github.Rules;
 using Application.Features.ProgramLanguage.Rules;
+using Application.Features.SubProgramLanguage.Rules;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using MediatR;
@@ -21,6 +23,8 @@ namespace Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddScoped<ProgramLanguageBusinessRules>();
+            services.AddScoped<SubProgramLanguageBusinessRules>();
+            services.AddScoped<GithubBusinessRules>();
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));

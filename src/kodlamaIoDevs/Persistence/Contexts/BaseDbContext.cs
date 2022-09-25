@@ -34,8 +34,23 @@ namespace Persistence.Contexts
                 a.ToTable("ProgramLanguages").HasKey(k => k.Id);
                 a.Property(p => p.Id).HasColumnName("Id");
                 a.Property(p => p.Name).HasColumnName("Name");
+                a.HasMany(a => a.SubProgramLanguages);
             });
 
+            modelBuilder.Entity<SubProgramLanguage>(a =>
+            {
+                a.ToTable("SubProgramLanguages").HasKey(k => k.Id);
+                a.Property(p => p.Id).HasColumnName("Id");
+                a.Property(p => p.SubName).HasColumnName("SubName");
+                a.HasOne(a => a.ProgramLanguage);
+            });
+
+            modelBuilder.Entity<Github>(a =>
+            {
+                a.ToTable("Githubs").HasKey(k => k.Id);
+                a.Property(p => p.Id).HasColumnName("Id");
+                a.Property(p => p.Name).HasColumnName("Name");
+            });
 
 
             ProgramLanguage[] propgramLanguageEntitySeeds = { new(1, "Java") };
